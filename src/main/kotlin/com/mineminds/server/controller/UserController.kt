@@ -14,9 +14,10 @@ data class TokenData(val token: String)
 class UserController {
 
     @PostMapping("/user")
-    fun getToken(@RequestBody userRequest: UserRequest): ResponseEntity<TokenResponse> {
+    fun getUser(@RequestBody userRequest: UserRequest): ResponseEntity<TokenResponse> {
         val token = generateToken(userRequest.username)
         val response = TokenResponse(TokenData(token))
+        //TODO: Save user to DB and return userId
         return ResponseEntity(response, HttpStatus.OK)
     }
 

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 class ProfileController(private val profileService: ProfileService) {
 
-    @GetMapping("/profile/{userId}")
+    @GetMapping("/profile/{username}")
     fun getUserProfile(@PathVariable userId: Long): UserProfile {
         return profileService.getUserProfile(userId)
     }
