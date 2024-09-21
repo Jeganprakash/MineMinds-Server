@@ -1,3 +1,24 @@
+import org.springframework.stereotype.Service
+
+data class Question(
+        val questionId: Int,
+        val question: String,
+        val options: List<String>,
+        val correctAnswer: Int // index of the correct answer in the options list
+)
+
+data class Quiz(
+        val levelId: Int,
+        val questions: List<Question>
+)
+
+data class QuizResult(
+        val levelId: Int,
+        val score: Int,
+        val totalQuestions: Int
+)
+
+
 @Service
 class QuizService {
 
