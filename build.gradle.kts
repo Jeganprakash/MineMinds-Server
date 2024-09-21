@@ -28,6 +28,8 @@ dependencies {
 	testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 	implementation("com.mysql:mysql-connector-j:9.0.0")
+	// https://mvnrepository.com/artifact/com.vladmihalcea/hibernate-types-5
+
 }
 
 kotlin {

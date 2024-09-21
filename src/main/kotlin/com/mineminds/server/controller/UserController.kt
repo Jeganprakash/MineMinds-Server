@@ -1,18 +1,23 @@
+package com.mineminds.server.controller
+
 import org.springframework.web.bind.annotation.*
 import org.springframework.http.ResponseEntity
 import org.springframework.http.HttpStatus
 import java.security.MessageDigest
 
 data class UserRequest(val username: String)
+data class TokenResponse(val data: TokenData)
+data class TokenData(val token: String)
 
 @RestController
 @RequestMapping("/api")
 class UserController {
 
     @PostMapping("/user")
-    fun getToken(@RequestBody userRequest: UserRequest): ResponseEntity<String> {
+    fun getToken(@RequestBody userRequest: UserRequest): ResponseEntity<TokenResponse> {
         val token = generateToken(userRequest.username)
-        return ResponseEntity(token, HttpStatus.OK)
+        val response = TokenResponse(TokenData(token))
+        return ResponseEntity(response, HttpStatus.OK)
     }
 
     private fun generateToken(username: String): String {
