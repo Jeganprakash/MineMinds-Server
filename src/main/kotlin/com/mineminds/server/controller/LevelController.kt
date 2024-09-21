@@ -34,6 +34,7 @@ class LevelController {
     private lateinit var levelService: LevelService
     @GetMapping("/levels")
     fun getAllLevels(): ResponseEntity<LevelResponse> {
+        println("levels")
         val response = LevelResponse(data = levelService.getAllLevels())
         return ResponseEntity(response, HttpStatus.OK)
     }
